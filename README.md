@@ -24,7 +24,7 @@ I like to collect some K-Pop photocards, but there are so many posts out there t
 
 1. Clone the repo
 ```
-git clone
+git clone https://github.com/tinatrxn/ig-bot.git
 ```
 2. Install NPM packages
 ```
