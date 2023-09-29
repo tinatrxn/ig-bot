@@ -9,7 +9,7 @@ This harmless Instagram bot saves posts of interests that have key-words in a ph
 
 I like to collect some K-Pop photocards, but there are so many posts out there that it gets hard to look through every single one for whatever I'm interested in. I wanted to automate this task and so I programmed an Instagram Bot using Puppeteer to look through posts for me and save the ones I would be interested in.
 
-# Steps it does 
+# Steps It Does 
 
 1. Sign into account
 2. Wait for authentication code input from user
@@ -19,6 +19,10 @@ I like to collect some K-Pop photocards, but there are so many posts out there t
 6. Move onto the next post and repeat X amount of times (here I put 1000 just because of the large amount of tags this account has)
 7. Optional: Cron allows for bot to repeat the save-and-next function to repeat every hour.
 
+## Customizing For Yourself
+
+The account which their tags are being searched by can be changed to anything, as well as the words of interest. 
+Also, the customDelay() function allows time for the webpage to load in order to look for specific XPath expressions. Change the argument to what works best for your system. 
 
 # How To Install
 
