@@ -6,10 +6,14 @@ const cron = require('node-cron');
 
     await ig.initialize();
 
+    // Replace with your account details
     await ig.login('username', 'password');
 
     await ig.savePics();
 })();
+
+
+// Uncomment the below lines to allow cron to schedule jobs/repeat 
 
 // const botWork = async () => {
 

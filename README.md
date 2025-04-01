@@ -9,28 +9,36 @@ This harmless Instagram bot saves posts of interests that have key-words in a ph
 
 I like to collect some K-Pop photocards, but there are so many posts out there that it gets hard to look through every single one for whatever I'm interested in. I wanted to automate this task and so I programmed an Instagram Bot using Puppeteer to look through posts for me and save the ones I would be interested in.
 
-# Steps it does 
+## Important To Know
+
+*This program currently only runs on Mac OS*. It used to work on Linux, but it suddenly stopped working around August 2023, possibly due to system updates and such (or probably just me). 
+
+# Steps It Does 
 
 1. Sign into account
 2. Wait for authentication code input from user
 3. Enter URL for specific IG page (I have mine going to a Canadian K-Pop Collector page)
-4. Go to tagged posts, click on first picture, and look for keywords in post's description (mind is looking for specific artists and if they are on sale)
+4. Go to tagged posts, click on first picture, and look for keywords in post's description (currently looking for specific artists and if they are on sale)
 5. Save post if keywords are found
 6. Move onto the next post and repeat X amount of times (here I put 1000 just because of the large amount of tags this account has)
 7. Optional: Cron allows for bot to repeat the save-and-next function to repeat every hour.
 
+## Personalization
+
+The account which their tags are being searched by can be changed to anything, as well as the words of interest. 
+Also, the customDelay() function allows time for the webpage to load in order to look for specific XPath expressions. Change the argument to what works best for your system. 
 
 # How To Install
 
 1. Clone the repo
 ```
-git clone
+git clone https://github.com/tinatrxn/ig-bot.git
 ```
 2. Install NPM packages
 ```
 npm install
 ```
 
-# Personalization 
+# Please Follow Instagram's Rules
 
-Please use it as you please, but be cautious of Instagram's terms of services (no spamming of likes, comments, or follows/unfollows). Enjoy!
+Use it as you please, but be cautious of Instagram's terms of services (no spamming of likes, comments, or follows/unfollows). Enjoy!

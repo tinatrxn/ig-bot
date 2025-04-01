@@ -12,11 +12,12 @@ const instagram = {
     initialize: async() => {
 
         instagram.browser = await puppeteer.launch({
-            headless: false
+            headless: false,
+            executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
         });
 
         instagram.page = await instagram.browser.newPage();
-        await instagram.page.setViewport({ width: 1920, height: 980});
+        await instagram.page.setViewport({ width: 1280, height: 800});
     },
 
     login: async(username, password) => {
@@ -28,35 +29,40 @@ const instagram = {
         await instagram.page.type('input[name="username"]', username, { delay: 50 });
         await instagram.page.type('input[name="password"]', password, { delay: 50 });
 
-        // click login button
+        // Click login button
         let loginButton = await instagram.page.$x('//div[contains(text(), "Log in")]');
         await loginButton[0].click();
 
-        await customDelay(10000);
+        await customDelay(5000);
         await instagram.page.waitForSelector('svg[aria-label="Settings"]');
     },
 
     savePics: async() => {
 
         await instagram.page.goto(ACC_URL, { waitUntil: 'networkidle2' });
-        await customDelay(10000);
+        await customDelay(5000);
 
         let tagged = await instagram.page.$x('//span[contains(text(), "Tagged")]');
         await tagged[0].click();
         await customDelay(1000);
 
+<<<<<<< HEAD
         let posts = await instagram.page.$$('div[class="_aagw"]');
         // returns array of all elements/pics
+=======
+        let posts = await instagram.page.$$('article > div:nth-child(1) img[crossorigin="anonymous"]');
+        // Returns array of all elements/pics
+>>>>>>> 9200b17b7e37888b7fb9a226bd89cb9c3a189abc
 
         for (let i = 0; i < 1000; i++) {
 
             await posts[0].click();
 
-            // wait for model to appear
+            // Wait for modal to appear
             await instagram.page.waitForSelector('div[aria-hidden="true"]');
             await customDelay(1000);
 
-            // Check if post-of-interes
+            // Check if post-of-interest
             const forSale = await instagram.page.$('h1::-p-text(wts)');
             const skz = await instagram.page.$('h1::-p-text(skz)');
             const lsf = await instagram.page.$('h1::-p-text(lesserafim)');
@@ -70,12 +76,12 @@ const instagram = {
                 }
             }
 
-            await customDelay(1000);
+            await customDelay(500);
 
             // close post
             await instagram.page.keyboard.press('ArrowRight');
 
-            await customDelay(2000);
+            await customDelay(1000);
         }
     }
 }
