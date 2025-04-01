@@ -45,7 +45,7 @@ const instagram = {
         await tagged[0].click();
         await customDelay(1000);
 
-        let posts = await instagram.page.$$('article > div:nth-child(1) img[crossorigin="anonymous"]');
+        let posts = await instagram.page.$$('div[class="_aagw"]');
         // returns array of all elements/pics
 
         for (let i = 0; i < 1000; i++) {
